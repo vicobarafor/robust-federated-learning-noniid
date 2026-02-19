@@ -107,7 +107,18 @@ These results highlight the importance of proximal regularization in highly non-
 
 ## Reproducibility
 
-All experiments are reproducible via:
+
+All experiments are fully reproducible via configuration files.
+
+Example (Shard = 3, FedProx):
 
 ```bash
-python -m scripts.run_fedavg --config configs/sweeps/<config_file>.yaml
+python -m scripts.run_fedavg --config configs/sweeps/shard3_fedprox_mu01.yaml
+```
+
+Multi-seed evaluation (Shard = 1):
+
+```bash
+python -m scripts.run_fedavg --config configs/sweeps/shard1_fedprox_mu01_seed1.yaml
+python -m scripts.run_fedavg --config configs/sweeps/shard1_fedprox_mu01_seed7.yaml
+```
