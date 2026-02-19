@@ -1,0 +1,20 @@
+seed: 42
+
+dataset:
+  name: "MNIST"
+  batch_size: 64
+  eval_batch_size: 256
+
+federated:
+  num_clients: 20
+  clients_per_round: 10
+  rounds: 20
+  local_epochs: 1
+  lr: 0.01
+
+partition:
+  type: "iid"   # we start IID first
+  dirichlet_alpha: 0.3  # ignored for IID
+
+logging:
+  out_dir: "results/mnist_fedavg_iid"

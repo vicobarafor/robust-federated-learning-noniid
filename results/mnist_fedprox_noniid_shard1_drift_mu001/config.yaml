@@ -1,0 +1,17 @@
+dataset:
+  batch_size: 64
+  eval_batch_size: 256
+  name: MNIST
+federated:
+  clients_per_round: 10
+  local_epochs: 5
+  lr: 0.01
+  mu: 0.01
+  num_clients: 20
+  rounds: 20
+logging:
+  out_dir: results/mnist_fedprox_noniid_shard1_drift_mu001
+partition:
+  shards_per_client: 1
+  type: noniid
+seed: 42

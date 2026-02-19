@@ -1,0 +1,12 @@
+seed: 42
+
+training:
+  epochs: 5
+  batch_size: 64
+  lr: 0.01
+
+eval:
+  batch_size: 256
+
+logging:
+  out_dir: "results/mnist_centralized"

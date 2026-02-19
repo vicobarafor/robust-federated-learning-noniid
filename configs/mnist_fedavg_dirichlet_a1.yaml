@@ -1,0 +1,20 @@
+seed: 42
+
+dataset:
+  name: "MNIST"
+  batch_size: 64
+  eval_batch_size: 256
+
+federated:
+  num_clients: 50
+  clients_per_round: 5
+  rounds: 50
+  local_epochs: 2
+  lr: 0.01
+
+partition:
+  type: "dirichlet"
+  dirichlet_alpha: 0.01   # MUCH harsher than 0.1
+
+logging:
+  out_dir: "results/mnist_fedavg_dirichlet_a1_harsh"

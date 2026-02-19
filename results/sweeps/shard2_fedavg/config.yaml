@@ -1,0 +1,17 @@
+dataset:
+  batch_size: 64
+  eval_batch_size: 256
+  name: MNIST
+federated:
+  clients_per_round: 10
+  local_epochs: 1
+  lr: 0.01
+  mu: 0.0
+  num_clients: 20
+  rounds: 20
+logging:
+  out_dir: results/sweeps/shard2_fedavg
+partition:
+  shards_per_client: 2
+  type: noniid
+seed: 42
