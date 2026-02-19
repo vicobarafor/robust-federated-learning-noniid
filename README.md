@@ -75,3 +75,39 @@ src/ Models, partitioning, FL algorithms
 - Measure gradient divergence between clients
 - Analyze communication vs performance trade-offs
 - Compare additional robustness-oriented FL algorithms
+
+
+## Experimental Results
+
+### Final Test Accuracy (20 communication rounds)
+
+| Partition (Label Skew) | Method                     | Final Accuracy |
+|------------------------|----------------------------|---------------|
+| Shard = 1              | FedAvg                     | 0.5614 |
+| Shard = 1              | FedProx (μ = 0.01)         | 0.6528 ± 0.0313 |
+| Shard = 2              | FedAvg                     | 0.8583 |
+| Shard = 2              | FedProx (μ = 0.01)         | 0.9031 |
+| Shard = 3              | FedAvg                     | 0.8889 |
+| Shard = 3              | FedProx (μ = 0.01)         | 0.9364 |
+
+---
+
+## Discussion
+
+This study evaluates the behavior of FedAvg and FedProx under controlled label-skew non-IID settings on MNIST.
+
+Under extreme heterogeneity (Shard = 1), FedAvg exhibits instability and degraded performance.  
+FedProx improves robustness by regularizing client updates toward the global model.
+
+As heterogeneity decreases (Shard = 2 → 3), the performance gap narrows, but FedProx consistently maintains superior convergence behavior.
+
+These results highlight the importance of proximal regularization in highly non-IID federated environments.
+
+---
+
+## Reproducibility
+
+All experiments are reproducible via:
+
+```bash
+python -m scripts.run_fedavg --config configs/sweeps/<config_file>.yaml
