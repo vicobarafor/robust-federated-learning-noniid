@@ -1,0 +1,21 @@
+seed: 7
+
+dataset:
+  name: "CIFAR10"
+  batch_size: 64
+  eval_batch_size: 256
+
+federated:
+  num_clients: 20
+  clients_per_round: 10
+  rounds: 20
+  local_epochs: 1
+  lr: 0.01
+  mu: 0.0
+
+partition:
+  type: "dirichlet"
+  dirichlet_alpha: 0.3
+
+logging:
+  out_dir: "results/cifar10_fedavg_dirichlet_a03_r20_seed7"

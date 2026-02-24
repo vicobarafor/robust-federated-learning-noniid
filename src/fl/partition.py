@@ -151,7 +151,7 @@ def make_client_loaders(
     loaders = []
     for idx in parts:
         subset = Subset(dataset, idx.tolist())
-        loader = DataLoader(subset, batch_size=batch_size, shuffle=True)
+        loader = DataLoader(subset, batch_size=batch_size, shuffle=True, num_workers=0)
         loaders.append(loader)
 
     return loaders

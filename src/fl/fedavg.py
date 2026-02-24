@@ -33,7 +33,13 @@ def local_train(
     model = model.to(device)
     model.train()
 
-    optimizer = torch.optim.SGD(model.parameters(), lr=lr)
+    optimizer = torch.optim.SGD(
+    model.parameters(),
+    lr=lr,
+    momentum=0.9,
+    weight_decay=5e-4,
+    nesterov=True,
+)
     loss_fn = nn.CrossEntropyLoss()
 
     global_params = None
