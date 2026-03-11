@@ -37,38 +37,35 @@ Under these conditions:
 This project explores whether **update-distance awareness at the server aggregation stage** can partially mitigate this behavior.
 
 ---
-
 ## Drift-Aware Adaptive Aggregation
 
-Let the update from client \( i \) be
+Let the update from client (i) be
 
-\[
+$$
 \Delta_i = w_i - w_{\text{global}}
-\]
+$$
 
 where \( w_{\text{global}} \) is the current server model.
 
 Compute the mean update
 
-\[
+$$
 \bar{\Delta} = \frac{1}{K}\sum \Delta_i
-\]
+$$
 
 DAA assigns a weight to each client update based on its deviation from the mean:
 
-\[
-\alpha_i \propto \exp(-\beta \lVert \Delta_i - \bar{\Delta} \rVert)
-\]
+$$
+\alpha_i \propto \exp(-\beta \|\Delta_i - \bar{\Delta}\|)
+$$
 
 Clients whose updates drift significantly from the consensus direction receive lower aggregation weight.
 
 The aggregated update becomes
 
-\[
+$$
 w_{\text{next}} = w_{\text{global}} + \sum \alpha_i \Delta_i
-\]
-
-This introduces **drift-sensitivity** without modifying client optimization or communication patterns.
+$$
 
 ---
 
