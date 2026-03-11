@@ -24,6 +24,15 @@ The figure summarizes the central empirical findings of the project:
 
 ---
 
+## Technical Report
+
+A detailed technical description of the method, experimental setup, and analysis
+is available in the report below.
+
+📄 **[Drift-Aware Adaptive Aggregation Technical Report](docs/daa_technical_report.pdf)**
+
+---
+
 ## Motivation
 
 Federated learning algorithms are typically evaluated under either IID partitions or mild heterogeneity. However, realistic deployments often exhibit **extreme client distribution skew**, particularly when datasets are partitioned by user behavior or device context.
